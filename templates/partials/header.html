@@ -1,0 +1,27 @@
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="logo" href="{% url 'web:home' %}">EPC</a>
+    <nav class="nav">
+      <a href="/players/">Игроки</a>
+      <a href="/teams/">Команды</a>
+    </nav>
+    <div class="header-right">
+      {% if user.is_authenticated %}
+        <details class="user-menu">
+          <summary>{{ user.get_username }}</summary>
+          <div class="user-menu-list">
+            <a href="/me/">Мой кабинет</a>
+            <a href="/me/invitations/">Приглашения и заявки</a>
+            <a href="/me/notifications/">Уведомления</a>
+            <form method="post" action="/logout/">
+              {% csrf_token %}
+              <button type="submit" class="btn-link">Выйти</button>
+            </form>
+          </div>
+        </details>
+      {% else %}
+        <a class="btn btn-primary" href="/login/">Войти</a>
+      {% endif %}
+    </div>
+  </div>
+</header>

@@ -1,0 +1,172 @@
+/* Esports Player Card. Все цвета и размеры в переменных ниже (SYS-G10). */
+:root {
+  --color-bg: #F7F8FA;
+  --color-surface: #FFFFFF;
+  --color-text: #1B1F24;
+  --color-muted: #5B6470;
+  --color-primary: #2F5BEA;
+  --color-primary-hover: #2447C0;
+  --color-success: #1E8E4A;
+  --color-warning: #B7791F;
+  --color-danger: #C62828;
+  --color-border: #DDE1E7;
+
+  --radius: 8px;
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 16px;
+  --space-4: 24px;
+  --space-5: 32px;
+  --container-width: 960px;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+h1 { font-size: 28px; margin: 0 0 var(--space-2); }
+h2 { font-size: 22px; margin: 0 0 var(--space-2); }
+h3 { font-size: 18px; margin: 0 0 var(--space-2); }
+
+a { color: var(--color-primary); }
+a:hover { text-decoration: underline; }
+
+.muted { color: var(--color-muted); }
+.small { font-size: 14px; }
+
+.container {
+  max-width: var(--container-width);
+  margin: 0 auto;
+  padding: 0 var(--space-3);
+}
+
+/* Шапка и подвал */
+.site-header {
+  background: var(--color-surface);
+  border-bottom: 1px solid var(--color-border);
+}
+.header-inner {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  min-height: 60px;
+  flex-wrap: wrap;
+}
+.logo { font-weight: 700; font-size: 20px; text-decoration: none; }
+.nav { display: flex; gap: var(--space-3); flex: 1; }
+.nav a { text-decoration: none; color: var(--color-text); padding: var(--space-2) 0; }
+.nav a:hover { color: var(--color-primary); }
+.header-right { display: flex; align-items: center; }
+
+.user-menu { position: relative; }
+.user-menu summary { cursor: pointer; padding: var(--space-2); min-height: 44px; display: flex; align-items: center; }
+.user-menu-list {
+  position: absolute;
+  right: 0;
+  z-index: 10;
+  min-width: 220px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: var(--space-2);
+  display: flex;
+  flex-direction: column;
+}
+.user-menu-list a, .user-menu-list .btn-link {
+  padding: var(--space-2);
+  text-align: left;
+  text-decoration: none;
+  color: var(--color-text);
+}
+
+.site-footer {
+  margin-top: var(--space-5);
+  padding: var(--space-4) 0;
+  border-top: 1px solid var(--color-border);
+  color: var(--color-muted);
+  font-size: 14px;
+}
+.footer-inner { display: flex; justify-content: space-between; gap: var(--space-3); flex-wrap: wrap; }
+.footer-inner a { margin-left: var(--space-3); }
+
+main.container { padding-top: var(--space-4); padding-bottom: var(--space-4); }
+
+/* Кнопки (SYS-G13, G14) */
+.btn, .btn-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 0 var(--space-3);
+  border-radius: var(--radius);
+  border: 1px solid transparent;
+  font: inherit;
+  cursor: pointer;
+  text-decoration: none;
+}
+.btn-primary { background: var(--color-primary); color: #fff; }
+.btn-primary:hover { background: var(--color-primary-hover); text-decoration: none; }
+.btn-secondary { background: var(--color-surface); color: var(--color-primary); border-color: var(--color-primary); }
+.btn-secondary:hover { background: #EEF2FF; text-decoration: none; }
+.btn-danger { background: var(--color-danger); color: #fff; }
+.btn-danger:hover { background: #A61F1F; text-decoration: none; }
+.btn-link { background: none; color: var(--color-primary); padding: 0; }
+.btn-link:hover { text-decoration: underline; }
+.btn:disabled, .btn[disabled] { background: #C9CED6; color: #fff; border-color: transparent; cursor: not-allowed; }
+.btn:focus-visible, .btn-link:focus-visible, a:focus-visible, summary:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible {
+  outline: 3px solid #9DB2FF;
+  outline-offset: 2px;
+}
+
+/* Блоки */
+.hero { padding: var(--space-5) 0; }
+.actions { display: flex; gap: var(--space-3); flex-wrap: wrap; margin-top: var(--space-4); }
+
+.grid-3 { display: grid; gap: var(--space-3); grid-template-columns: 1fr; }
+.card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: var(--space-4);
+}
+
+/* Значки (SYS 3.8) */
+.badge {
+  display: inline-block;
+  padding: 2px var(--space-2);
+  border-radius: 999px;
+  font-size: 14px;
+  border: 1px solid var(--color-border);
+}
+.badge-success { color: var(--color-success); border-color: var(--color-success); }
+.badge-warning { color: var(--color-warning); border-color: var(--color-warning); }
+.badge-danger { color: var(--color-danger); border-color: var(--color-danger); }
+
+/* Аватарки (SYS-G18) */
+.avatar { border-radius: 50%; object-fit: cover; background: var(--color-border); }
+.avatar-32 { width: 32px; height: 32px; }
+.avatar-40 { width: 40px; height: 40px; }
+.avatar-96 { width: 96px; height: 96px; }
+
+/* Сообщения (SYS 3.5) */
+.messages { margin-bottom: var(--space-3); }
+.message { padding: var(--space-3); border-radius: var(--radius); margin-bottom: var(--space-2); border: 1px solid; }
+.message-success { background: #EAF7EF; border-color: var(--color-success); }
+.message-error { background: #FDECEC; border-color: var(--color-danger); }
+.message-warning { background: #FFF6E5; border-color: var(--color-warning); }
+.message-info { background: #EEF2FF; border-color: var(--color-primary); }
+
+/* Планшет и компьютер */
+@media (min-width: 641px) {
+  .grid-3 { grid-template-columns: repeat(3, 1fr); }
+}
+@media (max-width: 640px) {
+  .actions .btn { width: 100%; }
+}

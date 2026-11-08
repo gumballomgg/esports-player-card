@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="hero">
+  <h1>Карточка игрока для CS2 и Dota 2</h1>
+  <p class="muted">Покажите подтверждённый уровень и найдите команду</p>
+  <div class="actions">
+    {% if user.is_authenticated %}
+      <a class="btn btn-primary" href="/me/">Моя карточка</a>
+    {% else %}
+      <a class="btn btn-primary" href="/login/">Создать карточку</a>
+    {% endif %}
+    <a class="btn btn-secondary" href="/players/">Найти игрока</a>
+    <a class="btn btn-secondary" href="/teams/">Найти команду</a>
+  </div>
+</section>
+
+<section class="grid-3">
+  <div class="card">
+    <h3>Подтверждённые данные</h3>
+    <p class="muted">Статистику мы берём из Steam, Leetify, FACEIT и OpenDota, а не со слов игрока.</p>
+  </div>
+  <div class="card">
+    <h3>Отзывы капитанов</h3>
+    <p class="muted">Репутацию создают оценки капитанов после реальных турниров.</p>
+  </div>
+  <div class="card">
+    <h3>Быстрый поиск</h3>
+    <p class="muted">Фильтры по игре, рейтингу, роли, региону и языку.</p>
+  </div>
+</section>
+{% endblock %}
